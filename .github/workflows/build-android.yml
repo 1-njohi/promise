@@ -17,12 +17,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'  # ✅ Fixed: Node 20
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'  # ✅ Changed to 8.4
+          php-version: '8.4'
           extensions: mbstring, pdo, pdo_mysql, tokenizer, xml, json, fileinfo
 
       - name: Install Composer dependencies

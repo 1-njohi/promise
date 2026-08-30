@@ -5,7 +5,7 @@ const config: CapacitorConfig = {
     appName: "Promise Shop",
     webDir: "public/build",
     server: {
-        url: "https://1a06-102-0-16-184.ngrok-free.app",
+        url: "https://8768-102-0-16-184.ngrok-free.app",
         cleartext: false,
         androidScheme: "https",
         iosScheme: "capacitor",

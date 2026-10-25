@@ -9,11 +9,12 @@ use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 
-// Public Routes
-Route::get('/', [PublicController::class, 'index'])->name('home');
-
 // Authenticated Routes
 Route::middleware(['auth'])->group(function () {
+
+    Route::get('/', [DashboardController::class, 'index'])
+        ->middleware('verified')
+        ->name('home');
 
     // Dashboard (requires email verification)
     Route::get('/dashboard', [DashboardController::class, 'index'])
@@ -25,6 +26,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])
             ->middleware('verified')
             ->name('admin.dashboard');
+
 
         Route::resources([
             'products' => ProductController::class,

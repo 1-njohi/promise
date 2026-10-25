@@ -2,11 +2,7 @@
 import Breadcrumb from "@/components/Breadcrumb.vue";
 import { Head, Link } from "@inertiajs/vue3";
 import { computed } from "vue";
-const breadcrumbs = [
-    { label: 'Home', url: '/admin/dashboard' },
-    { label: 'Sales', url: '/admin/sales' },
-    { label: 'Sale #' + sale.id },
-];
+
 // Define props with proper default
 const props = defineProps({
     sale: {
@@ -14,6 +10,12 @@ const props = defineProps({
         required: true,
     },
 });
+
+const breadcrumbs = [
+    { label: 'Home', url: '/admin/dashboard' },
+    { label: 'Sales', url: '/admin/sales' },
+    { label: 'Sale #' + props.sale.id },
+];
 
 // Computed totals
 const totalProfit = computed(() => {
